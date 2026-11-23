@@ -160,8 +160,8 @@ export const LegalPage: React.FC<{ doc: LegalDoc }> = ({ doc }) => {
                 3508 White Plains Rd, Bronx, NY
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="mailto:support@produceai.co" className="btn btn-ink h-12 px-6 text-[15px]">
-                  support@produceai.co
+                <a href="mailto:support@producepos.app" className="btn btn-ink h-12 px-6 text-[15px]">
+                  support@producepos.app
                 </a>
                 <a href="tel:+13472130687" className="btn h-12 px-6 text-[15px] border border-ink/25 hover:bg-ink/5 tabular-nums">
                   +1 (347) 213-0687

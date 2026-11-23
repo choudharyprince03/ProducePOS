@@ -52,8 +52,8 @@ export const Footer: React.FC<{ onBookDemo: (c?: string) => void; compact?: bool
           <VoriLogo theme="dark" size="nav" />
         </div>
         <div className="md:col-span-8 space-y-1.5 leading-[1.6] md:text-right">
-          <a href="mailto:support@produceai.co" className="link-draw relative inline-block before:absolute before:inset-x-0 before:-inset-y-3 before:content-[''] hover:text-white transition-colors">
-            support@produceai.co
+          <a href="mailto:support@producepos.app" className="link-draw relative inline-block before:absolute before:inset-x-0 before:-inset-y-3 before:content-[''] hover:text-white transition-colors">
+            support@producepos.app
           </a>
           <p>3508 White Plains Rd, Bronx, NY</p>
         </div>

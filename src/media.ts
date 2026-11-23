@@ -33,9 +33,11 @@ export const MEDIA = {
     scale: "/images/slots/scale.jpg" as string | null,
     /** Second scale shot, shown on hover over the scale card. */
     scaleOpen: "/images/slots/scale-open.jpg" as string | null,
-    printer: "/images/slots/printer.jpg" as string | null,
-    /** Second printer shot, shown on hover over the printer card. */
-    printerOpen: "/images/slots/printer-open.jpg" as string | null,
+    /** Epson thermal receipt printer (free kit). Save the photo as public/images/slots/receipt-printer.jpg and set this path. */
+    printer: null as string | null,
+    /** Zebra ZQ610 Plus label printer (paid, paired with the handheld). */
+    labelPrinter: "/images/slots/label-printer.jpg" as string | null,
+    labelPrinterOpen: "/images/slots/printer-open.jpg" as string | null,
     drawer: "/images/slots/drawer.jpg" as string | null,
     /** Second drawer shot (drawer open), shown on hover over the drawer card. */
     drawerOpen: "/images/slots/drawer-open.jpg" as string | null,

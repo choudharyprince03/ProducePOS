@@ -161,7 +161,7 @@ export const PRIVACY: LegalDoc = {
       body: [
         [
           "In the app: Settings, then Delete account, then confirm.",
-          "By email: write to support@produceai.co from the account’s email address.",
+          "By email: write to support@producepos.app from the account’s email address.",
         ],
         "We delete or anonymize the account and its personal data within 30 days. We keep only records the law requires, such as tax-related sales. Deleting a store owner’s account closes the store and removes its staff, shopper and store data. Admins can also archive staff and remove shopper records in the back office at any time.",
       ],

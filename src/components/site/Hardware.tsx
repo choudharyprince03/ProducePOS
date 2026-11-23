@@ -20,21 +20,22 @@ const FREE = [
 
 const ALT = {
   scale: "Zebra bioptic scanner scale",
-  printer: "Zebra ZQ610 Plus mobile receipt printer",
+  printer: "Epson thermal receipt printer printing a receipt",
   drawer: "Black cash drawer with key lock",
 };
 
 const OPTIONAL = [
   { k: "customerDisplay" as const, title: "Customer display & PIN pad", text: "Shopper screen and card reader." },
-  { k: "handheld" as const, title: "Handheld scanner", text: "Scan deliveries and audit coolers." },
   { k: "shelfTags" as const, title: "Electronic shelf tags", text: "Prices update wirelessly." },
 ];
 
 const HOVER: Record<string, { src: string; alt: string } | undefined> = {
   scale: MEDIA.hardware.scaleOpen ? { src: MEDIA.hardware.scaleOpen, alt: "Zebra bioptic scanner scale with the load cell and scanner window exposed" } : undefined,
-  printer: MEDIA.hardware.printerOpen ? { src: MEDIA.hardware.printerOpen, alt: "Zebra ZQ610 Plus printer with the cover open and a paper roll loaded" } : undefined,
   drawer: MEDIA.hardware.drawerOpen ? { src: MEDIA.hardware.drawerOpen, alt: "Cash drawer open, showing the bill and coin tray" } : undefined,
 };
+
+const labelPhoto = MEDIA.hardware.labelPrinter ?? "/images/slots/label-printer.jpg";
+const handheldPhoto = MEDIA.hardware.handheld ?? STAND_IN.handheld;
 
 const photo = (k: keyof typeof STAND_IN & keyof typeof MEDIA.hardware) => MEDIA.hardware[k] ?? STAND_IN[k];
 
@@ -126,7 +127,7 @@ export const Hardware: React.FC<Props> = ({ onBookDemo }) => {
             Get pricing <ArrowRight className="w-4 h-4 arrow" />
           </button>
         </div>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {OPTIONAL.map((o) => (
             <article key={o.k} data-reveal="rise" className="group card-lift flex flex-col gap-5 rounded-[24px] bg-white p-3 border border-ink/[0.07] hover:shadow-[0_24px_50px_-24px_rgba(7,8,10,0.35)]">
               <div className="zoom-frame rounded-[16px] bg-ink w-full shrink-0 aspect-[4/3]">
@@ -139,6 +140,24 @@ export const Hardware: React.FC<Props> = ({ onBookDemo }) => {
             </article>
           ))}
         </div>
+        <article data-reveal="rise" className="mt-6 sm:mt-8 rounded-[24px] bg-white p-3 border border-ink/[0.07]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative">
+            <div className="zoom-frame rounded-[16px] bg-ink aspect-[4/3]">
+              <img src={handheldPhoto} alt="Handheld scanner with pistol grip and orange trigger" loading="lazy" className="slot-img" />
+            </div>
+            <div className="zoom-frame rounded-[16px] bg-[#e9eaec] aspect-[4/3]">
+              <img src={labelPhoto} alt="Zebra ZQ610 Plus label printer" loading="lazy" className="slot-img" />
+            </div>
+            <span aria-hidden className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-neon text-ink items-center justify-center text-[22px] font-bold shadow-md">+</span>
+          </div>
+          <div className="px-3 pt-5 pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <h4 className="text-[18px] font-bold leading-tight">Handheld scanner + label printer</h4>
+              <p className="mt-1.5 text-[15px] leading-[1.55] text-ink/60">Scan a shelf, print the label on the spot.</p>
+            </div>
+            <span className="text-[13px] font-semibold text-ink/50">Sold separately</span>
+          </div>
+        </article>
       </div>
     </section>
   );
