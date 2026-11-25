@@ -34,8 +34,10 @@ export const MEDIA = {
     /** Second scale shot, shown on hover over the scale card. */
     scaleOpen: "/images/slots/scale-open.jpg" as string | null,
     /** Epson thermal receipt printer (free kit). Save the photo as public/images/slots/receipt-printer.jpg and set this path. */
-    printer: null as string | null,
+    printer: "/images/slots/receipt-printer.jpg" as string | null,
     /** Zebra ZQ610 Plus label printer (paid, paired with the handheld). */
+    /** Second printer shot (lid open), shown on hover over the printer card. */
+    printerOpen: "/images/slots/receipt-printer-open.jpg" as string | null,
     labelPrinter: "/images/slots/label-printer.jpg" as string | null,
     labelPrinterOpen: "/images/slots/printer-open.jpg" as string | null,
     drawer: "/images/slots/drawer.jpg" as string | null,
@@ -43,6 +45,10 @@ export const MEDIA = {
     drawerOpen: "/images/slots/drawer-open.jpg" as string | null,
     customerDisplay: "/images/slots/customer-display.jpg" as string | null,
     handheld: "/images/slots/handheld.jpg" as string | null,
+    /** PAX A35 Android PIN pad (product render from paxtechnology.com/a35). */
+    pinpadPax: "/images/slots/pinpad-pax-a35.png" as string | null,
+    /** Dejavoo P17 Android PIN pad (product render from dejavoo.io). */
+    pinpadDejavoo: "/images/slots/pinpad-dejavoo-p17.png" as string | null,
     shelfTags: null as string | null,
   },
 

@@ -1,3 +1,4 @@
+import { StoreButtons } from "./StoreButtons";
 import React, { useLayoutEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
@@ -94,16 +95,11 @@ export const Hero: React.FC<HeroProps> = ({ onBookDemo }) => {
             >
               Get free hardware <ArrowRight className="w-4 h-4 arrow" />
             </button>
-            <a
-              href="#system"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("system")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="btn btn-ghost h-14 px-7 text-[16px] w-full sm:w-auto"
-            >
-              See how it works
-            </a>
+          </div>
+
+          <div data-hero="fade" className="mt-10 pt-7 border-t border-white/10">
+            <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/45 mb-4">Download the app</p>
+            <StoreButtons />
           </div>
 
         </div>

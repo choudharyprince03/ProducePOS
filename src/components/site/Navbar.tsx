@@ -8,7 +8,7 @@ interface NavbarProps {
 const LINKS: { label: string; id: string; page?: string }[] = [
   { label: "How it works", id: "system" },
   { label: "Hardware", id: "hardware" },
-  { label: "FAQ", id: "faq" },
+  { label: "Download", id: "download" },
   { label: "Partnerships", id: "partnerships", page: "/partnerships" },
 ];
 

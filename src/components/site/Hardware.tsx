@@ -20,17 +20,18 @@ const FREE = [
 
 const ALT = {
   scale: "Zebra bioptic scanner scale",
-  printer: "Epson thermal receipt printer printing a receipt",
+  printer: "Epson thermal receipt printer, front view with a receipt in the paper slot",
   drawer: "Black cash drawer with key lock",
 };
 
 const OPTIONAL = [
-  { k: "customerDisplay" as const, title: "Customer display & PIN pad", text: "Shopper screen and card reader." },
+  { k: "customerDisplay" as const, title: "Customer display", text: "Shows the shopper their basket and total." },
   { k: "shelfTags" as const, title: "Electronic shelf tags", text: "Prices update wirelessly." },
 ];
 
 const HOVER: Record<string, { src: string; alt: string } | undefined> = {
   scale: MEDIA.hardware.scaleOpen ? { src: MEDIA.hardware.scaleOpen, alt: "Zebra bioptic scanner scale with the load cell and scanner window exposed" } : undefined,
+  printer: MEDIA.hardware.printerOpen ? { src: MEDIA.hardware.printerOpen, alt: "Epson receipt printer with the lid open, showing the paper roll and cutter" } : undefined,
   drawer: MEDIA.hardware.drawerOpen ? { src: MEDIA.hardware.drawerOpen, alt: "Cash drawer open, showing the bill and coin tray" } : undefined,
 };
 
@@ -93,6 +94,22 @@ export const Hardware: React.FC<Props> = ({ onBookDemo }) => {
             </article>
           ))}
         </div>
+        <article data-reveal="rise" className="mt-10 sm:mt-12 rounded-[24px] bg-white p-3 border border-ink/[0.07]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative">
+            <div className="zoom-frame rounded-[16px] bg-[#e9eaec] aspect-[16/10] relative">
+              <img src={MEDIA.hardware.pinpadPax ?? STAND_IN.customerDisplay} alt="PAX A35 Android PIN pad with color touchscreen and keypad" loading="lazy" className="slot-img !object-contain p-5 sm:p-6" />
+              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-neon text-ink text-[12.5px] font-bold px-3.5 py-1.5">$0 · included</span>
+            </div>
+            <div className="zoom-frame rounded-[16px] bg-[#e9eaec] aspect-[16/10]">
+              <img src={MEDIA.hardware.pinpadDejavoo ?? STAND_IN.customerDisplay} alt="Dejavoo P17 Android PIN pad with touchscreen and large keypad" loading="lazy" className="slot-img !object-contain p-5 sm:p-6" />
+            </div>
+            <span aria-hidden className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-10 px-3.5 rounded-full bg-neon text-ink items-center justify-center text-[14px] font-bold shadow-md">or</span>
+          </div>
+          <div className="px-3 pt-5 pb-3">
+            <h4 className="text-[18px] font-bold leading-tight">PAX A35 or Dejavoo P17 PIN pad</h4>
+            <p className="mt-1.5 text-[15px] leading-[1.55] text-ink/60">Android card terminal. Pick the one you like.</p>
+          </div>
+        </article>
       </div>
 
       {/* scroll-driven type pass */}

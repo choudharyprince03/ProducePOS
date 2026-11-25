@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { MEDIA, STAND_IN } from "../../media";
 import { VoriLogo } from "../vori/VoriLogo";
+import { StoreButtons } from "./StoreButtons";
 import { ScanBars } from "./motion";
 
 export const Footer: React.FC<{ onBookDemo: (c?: string) => void; compact?: boolean }> = ({ onBookDemo, compact }) => (
@@ -47,7 +48,17 @@ export const Footer: React.FC<{ onBookDemo: (c?: string) => void; compact?: bool
 
       </>)}
 
-      <div className={`${compact ? "" : "mt-32 sm:mt-48 border-t border-white/12"} pt-10 grid grid-cols-1 md:grid-cols-12 gap-8 text-[14.5px] text-white/55`}>
+      <div id="download" className={`${compact ? "mt-12" : "mt-32 sm:mt-48"} scroll-mt-24 border-t border-white/12 pt-10 grid grid-cols-1 md:grid-cols-12 gap-8`}>
+        <div className="md:col-span-4">
+          <h3 className="text-[22px] font-bold tracking-tight">Get the apps</h3>
+          <p className="mt-2 text-[14.5px] text-white/55">Back office on your phone. Lane software on your PC.</p>
+        </div>
+        <div className="md:col-span-8 md:flex md:justify-end">
+          <StoreButtons size="lg" />
+        </div>
+      </div>
+
+      <div className={`mt-10 border-t border-white/12 pt-10 grid grid-cols-1 md:grid-cols-12 gap-8 text-[14.5px] text-white/55`}>
         <div className="md:col-span-4">
           <VoriLogo theme="dark" size="nav" />
         </div>
@@ -60,7 +71,7 @@ export const Footer: React.FC<{ onBookDemo: (c?: string) => void; compact?: bool
       </div>
 
       <p className="mt-12 text-[13px] leading-relaxed max-w-3xl text-white/60">
-        Free hardware is for qualified grocery and produce store owners. Extras are sold separately.
+        Free hardware is for qualified grocery and produce store owners. Extras are sold separately. Apple, Google Play and Windows are trademarks of their owners.
       </p>
 
       <div className="mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-[13px] text-white/60">
