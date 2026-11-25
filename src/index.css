@@ -134,15 +134,34 @@ p, li, dd { text-wrap: pretty; }
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
-.store-btn {
-  background: #fff;
-  color: var(--ink);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 14px 30px -16px rgba(0, 0, 0, 0.9);
+/* App download links in the footer column: same look as every footer link; the mark presses with the link */
+.store-link svg {
+  transition: transform 0.16s var(--ease);
 }
-.store-btn:hover {
-  background: var(--paper);
-  transform: translateY(-2px);
-  box-shadow: 0 0 0 1px #fff, 0 16px 34px -14px rgba(0, 0, 0, 0.9);
+.store-link:active svg {
+  transform: scale(0.92);
+}
+.store-link:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+/* App links in the Specs section: arrow nudges toward the store, press confirms */
+.app-link-arrow {
+  transition: transform 0.2s var(--ease), color 0.2s var(--ease);
+}
+.app-link:active {
+  transform: scale(0.97);
+}
+@media (hover: hover) and (pointer: fine) {
+  .app-link:hover .app-link-arrow {
+    transform: translate(2px, -2px);
+  }
+}
+.app-link:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 .btn-ink {
   background: var(--ink);

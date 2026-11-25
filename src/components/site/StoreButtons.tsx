@@ -1,46 +1,57 @@
 import React from "react";
 
+/* One-colour store marks (Simple Icons / SVG Logos, CC0). They take the text colour. */
+type IconProps = { className?: string };
+
+const AppleMark: React.FC<IconProps> = ({ className }) => (
+  <svg viewBox="0.633 -0.481 21.623 25.012" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+  </svg>
+);
+
+const PlayMark: React.FC<IconProps> = ({ className }) => (
+  <svg viewBox="0.745 -0.464 21.753 24.969" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z" />
+  </svg>
+);
+
+const WindowsMark: React.FC<IconProps> = ({ className }) => (
+  <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M0 0h121.33v121.33H0zM134.67 0H256v121.33H134.67zM0 134.67h121.33V256H0zM134.67 134.67H256V256H134.67z" />
+  </svg>
+);
+
 export const STORES = [
   {
-    kicker: "Download on the",
-    label: "App Store",
-    note: "Back office for iPhone",
+    label: "iPhone",
+    note: "Back office app on the App Store",
     href: "https://apps.apple.com/us/app/produce-ai-backoffice/id6810565424",
-    icon: "/images/brand/stores/apple.svg",
+    Icon: AppleMark,
   },
   {
-    kicker: "Get it on",
-    label: "Google Play",
-    note: "Back office for Android",
+    label: "Android",
+    note: "Back office app on Google Play",
     href: "https://play.google.com/store/apps/details?id=com.produceai.app",
-    icon: "/images/brand/stores/google-play-icon.svg",
+    Icon: PlayMark,
   },
   {
-    kicker: "Download for",
     label: "Windows",
-    note: "POS Lane Setup",
+    note: "POS Lane Setup for Windows",
     href: "https://github.com/nikhildhanda04/Produce-Pos-/releases/download/v1.0.218/Produce-POS-Lane-Setup-1.0.218.exe",
-    icon: "/images/brand/stores/microsoft-windows-icon.svg",
+    Icon: WindowsMark,
   },
 ];
 
-export const StoreButtons: React.FC<{ size?: "md" | "lg"; className?: string }> = ({ size = "md", className = "" }) => (
-  <div className={`flex flex-wrap gap-3 ${className}`}>
-    {STORES.map(({ kicker, label, note, href, icon }) => (
-      <a
-        key={label}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`${label}: ${note}`}
-        className={`btn store-btn gap-3 justify-start max-sm:w-full ${size === "lg" ? "h-[60px] px-6 sm:min-w-[176px]" : "h-[54px] px-4 sm:min-w-[148px]"}`}
-      >
-        <img src={icon} alt="" className={`shrink-0 w-auto ${size === "lg" ? "h-8" : "h-7"}`} />
-        <span className="flex flex-col items-start leading-none text-left">
-          <span className="text-[11px] font-medium text-ink/55">{kicker}</span>
-          <span className={`mt-1 font-bold tracking-tight ${size === "lg" ? "text-[18px]" : "text-[16px]"}`}>{label}</span>
-        </span>
-      </a>
+/** App downloads as a plain footer link column (the Linear / Todoist / Discord pattern). */
+export const StoreLinks: React.FC<{ linkClass: string }> = ({ linkClass }) => (
+  <ul className="space-y-3">
+    {STORES.map(({ label, note, href, Icon }) => (
+      <li key={label}>
+        <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label}: ${note}`} className={`store-link ${linkClass}`}>
+          <Icon className="w-[15px] h-[15px] shrink-0" />
+          <span className="link-draw relative">{label}</span>
+        </a>
+      </li>
     ))}
-  </div>
+  </ul>
 );
